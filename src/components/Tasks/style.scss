@@ -1,0 +1,215 @@
+@import "../../assets/variables";
+
+.tasks{
+    $self: &;
+    margin: 0px 0px 40px 0px;
+    &:last-child{
+      margin: 0px 0px 0px 0px;
+    }
+	&__title{
+		padding: 0px 0px 20px 0px;
+		border-bottom: 1px solid #F2F2F2;
+        font-weight: 700;
+        font-size: 32px;
+        line-height: calc(39 / 32);
+
+        @media (max-width: $md2+px){
+           font-size: 30px;
+        }
+        @media (max-width: $md3+px){
+            padding: 0px 0px 10px 0px;
+            font-size: 26px;
+        }
+        
+        @media (min-width: 992px){
+            &:hover{
+                svg{
+                    path{
+                        fill: #DFDFDF;
+                    }
+                }
+            }
+        }
+
+         svg{
+            cursor: pointer;
+            margin: 0px 0px 0px 15px;
+            path{
+                fill: transparent;
+                transition: all .3s ease-in-out;
+            }
+            @media (min-width: 992px){
+            &:hover{
+                    path{
+                        fill: #333;
+                    }
+                }
+            }
+        }
+    }
+    &__items{
+        margin: 30px 0px 0px 0px;
+        @media (max-width: $md3+px){
+            margin: 20px 0px 0px 0px;
+        }
+    }
+
+    &__checkbox{
+
+        input{
+            display: none;
+        }
+        label{
+            border: 2px solid #E8E8E8;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;   
+            transition: all .3s ease-in-out;     
+            display: flex;
+            justify-content: center;
+            align-items: center;   
+            svg{
+                position: relative;
+                left: .5px;
+                top: .5px;
+                path{
+                    transition: all .3s ease-in-out;
+                }
+            }
+        }
+        @media (min-width: 992px){
+            &:hover{
+                label{
+                    background: #F2F2F2;
+                    border-color: #F2F2F2;
+                    svg{
+                        path{
+                            stroke: #B2B2B2;
+                        }
+                    }
+                }
+            }
+        }
+
+        input:checked + label{
+            background: #4DD599;
+            border-color: #4DD599;
+            svg{
+                path{
+                    stroke: white;
+                }
+            }
+        }
+    }
+
+    &__item{
+        display: flex;
+        align-items: flex-start;
+        margin: 0px 0px 20px 0px;
+        @media (min-width: 992px){
+            &:hover{
+                #{$self}__actions{
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    &__descr{
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 20px;
+        padding: 0px 0px 0px 15px;
+        width: 100%;
+        border: none;
+        box-shadow: none;
+    }
+    &__actions {
+        display: flex;
+        opacity: 0;
+        transition: all .3s ease-in-out;
+        @media (max-width: $md2+px){
+            opacity: 1;
+         }
+    }
+    &__action {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        background-color: lighten(#f4f6f8, 2%);
+        border-radius: 6px;
+        margin-left: 5px;
+        cursor: pointer;
+        transition: all .3s ease-in-out;
+
+        &:hover {
+          background-color: darken(#f4f6f8, 2%);
+          svg {
+            opacity: 0.9;
+          }
+        }
+
+        svg {
+          width: 11px;
+          height: 11px;
+          opacity: 0.4;
+          transition: all .3s ease-in-out;
+        }
+    }
+}
+
+.add-task{
+    &__new{
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        svg{
+            margin: 0px 0px 0px 4px;
+            path{
+                transition: all .3s ease-in-out;
+            }
+        }
+        span{
+            color: #B4B4B4;
+            font-weight: 500;
+            margin: 0px 0px 0px 20px;
+            transition: all .3s ease-in-out;
+        }
+        @media (min-width: 992px){
+           &:hover{
+               span{
+                color: #333;
+               }
+                svg{
+                    path{
+                        stroke: #333;
+                    }
+                }
+            }
+        }
+    }
+
+    &__form{
+    }
+    
+    &__buttons{
+        margin: 15px 0px 0px 0px;
+        display: flex;
+        align-items: center;
+    }
+
+    &__input{
+
+    }
+
+    &__add{
+        margin: 0px 10px 0px 0px;
+    }
+
+    &__error{
+
+    }
+
+}

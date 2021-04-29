@@ -1,0 +1,64 @@
+@import "../../assets/variables";
+
+
+.popup{
+    transition: all .3s ease-in-out;
+    $self: &;
+    margin: 0px 0px 10px 0px;
+    &:last-child{
+      margin: 0px 0px 0px 0px;
+    }
+    &_error{
+        #{$self}__body{
+           border-color: rgb(255, 42, 42); 
+        }
+    }
+    &__buttons{
+        display: flex;
+        align-items: center;
+        margin: 10px 0px 0px 0px;
+    }
+    &__completed{
+        margin: 0px 10px 0px 0px;
+    }
+
+    &__body{
+        background: $white;
+        border-radius: 10px;
+        padding: 10px 20px;
+        position: relative;
+        z-index: 10;
+        border: 1px solid #4DD599;
+    }
+    &__text{
+        font-size: 14px;
+        line-height: 1.3;
+        color: #9C9C9C;
+        font-weight: 600;
+    }
+
+    &__input{
+        margin: 10px 0px 0px 0px;
+    }
+
+    &__error{
+    }
+
+    &.enter {
+        opacity: 0;
+        transform: translate(2.5%, 15px) scale(0.8);
+    }
+    &.enter-active {
+        opacity: 1;
+        transform: translate(0%, 0px) scale(1);
+    }
+    &.exit {
+        opacity: 1;
+        transform: translate(0%, 0px) scale(1);
+    }
+    &.exit-active {
+        opacity: 0;
+        transform: translateY(10px);
+        transform: translate(2.5%, 15px) scale(0.8);
+    }
+}

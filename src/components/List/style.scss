@@ -1,0 +1,133 @@
+@import "../../assets/variables";
+
+.list-todo{
+    $self: &;
+    margin: 0px 0px 30px 0px;
+    &:last-child{
+      margin: 0px 0px 0px 0px;
+    }
+    @media (max-width: $md3+px){
+        display: flex;
+        align-items: center;
+        margin: 0px 0px 0px 0px;
+        &:first-child li{
+            margin: 0px 0px 0px 0px;
+        }
+    }
+
+	&__icon{
+		display: inline-flex;
+		margin: 0px 10px 0px 0px;
+        position: absolute;
+        top: 50%;
+        left: 16px;
+        transform: translate(-50%,-50%);
+		i{
+			width: 10px;
+			height: 10px;
+			border-radius: 50%;
+            transition: all .3s ease-in-out;
+		}
+	}
+	&__name{
+		font-size: 14px;
+        position: relative;
+        z-index: 2;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        flex: 1 1 auto;
+        span{
+            color: #999;
+        }
+	}
+    &__remove{
+        opacity: 0;
+        visibility: hidden;
+        transition: all .3s ease-in-out;
+        z-index: 2;
+        svg{
+            path{
+                transition: all .3s ease-in-out;
+            }
+        }
+        @media (max-width: $md2+px){
+           opacity: 1;
+           visibility: visible;
+           margin: 0px 0px 0px 10px;
+        }
+        @media (min-width: 992px){
+           &:hover{
+            svg{
+                path{
+                    fill: #111;
+                }
+            }
+         }
+        }
+    }
+    li{
+		display: flex;
+		align-items: center;
+		padding: 10px 12px 10px 32px;
+		cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        border-radius: 4px;
+        transition: all .3s ease-in-out;
+        @media (max-width: $md3+px){
+            flex: 0 0 auto;
+            border-radius: 50px;
+            margin: 0px 0px 0px 10px;
+        }
+        @media (min-width: 992px){
+            &:hover{
+                background: rgba(255,255,255, .3);
+                #{$self}__remove{
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+
+        &.active{
+			background: $white;
+			box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.05);
+            @media (min-width: 992px){
+                &:hover{
+                    background: $white;
+                    #{$self}__remove{
+                        opacity: 1;
+                        visibility: visible;
+                    }
+                }
+            }
+		}
+	}
+
+    &__add{
+        color: #767676;
+        font-weight: 600;
+        transition: all .3s ease-in-out;
+        #{$self}__icon{
+            svg{
+                path{
+                    transition: all .3s ease-in-out;
+                }
+            }
+        }
+        @media (min-width: 992px){
+            li:hover{
+                color: #111;
+                #{$self}__icon{
+                  svg{
+                        path{
+                            stroke: #111;
+                        }
+                    }  
+                }
+                
+            }
+        }
+    }
+}
