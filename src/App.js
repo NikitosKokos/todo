@@ -108,12 +108,14 @@ function App() {
       setActiveItem(list);
     }
   }, [lists, history.location.pathname])
-
+  
   return (
     <div className="todo">
       <div className="todo__sidebar">
       <div className="todo__lists">
-        <List
+      {lists 
+      ? <>
+      <List
           onClickItem={item => history.push('/')}
           items={[
             {
@@ -127,7 +129,6 @@ function App() {
               active: history.location.pathname === '/',
           }]}
       />
-      {lists ? (
           <List
             items={lists}
             setPopup={addPopup}
@@ -140,9 +141,8 @@ function App() {
             activeItem={activeItem}
             isRemovable
           />
-        ) : (
-          <div className='todo__loading'>Загрузка...</div>
-        )}
+        </> 
+        : <div className='todo__loading'>Загрузка...</div> }
       </div>
       {colors && <AddList popup={popup} setPopup={addPopup} onAddList={onAddList} onAddColor={onAddColor} colors={colors} />}
       </div>

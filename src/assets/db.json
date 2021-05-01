@@ -100,7 +100,7 @@
     {
       "listId": 1,
       "text": "Выучить Present Perfect",
-      "completed": false,
+      "completed": true,
       "id": 15
     },
     {
