@@ -70,7 +70,7 @@
     {
       "listId": 1,
       "text": "qweqwe",
-      "completed": false,
+      "completed": true,
       "id": 7
     },
     {
@@ -141,7 +141,7 @@
     },
     {
       "listId": 7,
-      "text": "1234",
+      "text": "12345",
       "completed": false,
       "id": 23
     }
